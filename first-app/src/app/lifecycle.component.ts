@@ -1,5 +1,6 @@
 import {
   Component,
+  Input,
   OnInit,
   OnChanges,
   DoCheck,
@@ -13,13 +14,15 @@ import {
 @Component({
   selector: 'fa-lifecycle',
   template: `
-    <p>
-      lifecycle Works!
-    </p>
+    <ng-content></ng-content>
+    <hr>
+    <p>{{bindable}}</p>
   `,
   styles: []
 })
 export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+
+  @Input() bindable = 1000;
 
   constructor() { }
 
